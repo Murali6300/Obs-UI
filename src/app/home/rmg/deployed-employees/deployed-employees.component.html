@@ -1,0 +1,184 @@
+<div class="bgColor shadow in">
+    <div class="col-md-12">
+        <span style="font-size: 18px;"><h5>Deployed Resource Management</h5></span>
+        
+      </div>
+      <hr>
+      <button class="btn btn-primary float-right" *ngIf="backhide" (click)="back()">Back</button>
+      <div class="row" *ngIf="hidedtab">
+          <div class="col-md-5">
+            <input type="text" class="form-control" name="key" [(ngModel)]="search" size="20" placeholder="Search">
+          </div>
+        </div>
+        <br>
+      <!-- proposals start here -->
+      <div *ngIf="hidedtab">
+    
+          <div class="table table-responsive">
+      
+            <table class="table text-center tablefontsize" style="border-radius: 3px;font-size:14px">
+      
+              <thead style="background-color: #1d62a7; color: cornsilk; ">
+                  <!-- <th>Booking Id</th> -->
+    
+                  <!-- <th>Resource Type</th> -->
+
+                  <th>Employee Id</th>
+                  <th>Employee Name</th>
+                  <th>Project Id</th>
+                  <th>Project Name</th>
+      
+                   <th>Status</th>
+        
+              
+                 <th>Release</th>
+      
+              </thead>
+              <tbody>
+                
+                  <tr *ngFor="let resouceProposal of rmgProposal | rmg:search | paginate: { itemsPerPage: pages, currentPage:pd, id:'pd' };let i=index">
+                      <td>{{resouceProposal.employeeId}}</td>
+                      <td>{{resouceProposal.fullName}}</td>
+                      <td>{{resouceProposal.projectId}}</td>
+                      <td>{{resouceProposal.projectName}}</td>
+                      <td>{{resouceProposal.status}}</td>
+                  
+                
+                 
+            
+                 
+                  <td><button>Release</button></td>
+      
+                      </tr>
+              </tbody>
+      
+            </table>
+      
+          </div>
+      
+          <div>
+            <span class="m-2">Items per page</span>
+            <select [(ngModel)]="pages">
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+            </select>
+            <pagination-controls (pageChange)="pd = $event" id="pd" style="float:right"></pagination-controls>
+      
+      </div>
+      </div>
+    
+      
+      
+     
+      
+      <!-- book more -->
+        <!-- <div >
+          <div class="card  mt-5 mx-auto" style="width:70%">
+            <div class="header shadow">
+              <b>Deployed Resource Details</b>
+        
+            </div>
+            <div style="padding:20px;">
+              <div class="row">
+        
+                <div class="col-md-3">
+                  <p> <b>Booking Id </b>: {{dataOfResource.bookingId}}</p>
+                </div>
+        
+                <div class="col-md-3">
+                  <p><b>Project Id</b> : {{dataOfResource.projectId}}</p>
+                </div>
+        
+                <div class="col-md-3">
+                  <p><b>Status</b> : {{dataOfResource.status}}</p>
+                </div>
+        
+                <div class="col-md-3">
+                  <p><b>Resource Type</b> : {{dataOfResource.resourceType}}</p>
+                </div>
+        
+              </div>
+              <div *ngIf="specificMoreInfo">
+                <div *ngFor="let r of specificDataSp">
+    
+                    <div class="row" style="background-color: #ebe9e9;">
+          
+                      <div class="col-md-3">
+                        <p><b>Employee Id </b>: {{r.employeeId}}</p>
+                      </div>
+                      
+                      <div class="col-md-3">
+                        <p><b>Start Date :</b> {{r.startDate|date}}</p>
+                      </div>
+                      <div class="col-md-3">
+                        <p><b>End Date :</b> {{r.endDate|date}}</p>
+                      </div>
+                      <div class="col-md-3">
+                          <p><b>Bill Rate :</b> {{r.billRate}}</p>
+                        </div>
+                        <div class="col-md-3" *ngIf="hideAlternative">
+                          <p><b>Alternative Employee Id :</b> {{r.alternateemployeeId}}</p>
+                        </div>
+                        <div class="col-md-3">
+                          <p><b>Reason :</b> {{r.reason}}</p>
+                        </div>
+          
+                    </div>
+                   
+                    
+                    <br>
+          
+                  </div>
+            </div>
+            <div *ngIf="!specificMoreInfo">
+                <div *ngFor="let resourceDataArray of dataOfResource.rmggeneric">
+    
+                    <div class="row" style="background-color: #ebe9e9;">
+          
+                        <div class="col-md-3">
+                            <p><b>Resourse Skill :</b> {{resourceDataArray.resourceSkills}}</p>
+                          </div>
+                          <div class="col-md-3">
+                            <p><b>Resourse Experience :
+                              </b>{{resourceDataArray.resourceExperience}}</p>
+                          </div>
+                      
+                      <div class="col-md-3">
+                        <p><b>Start Date :</b> {{resourceDataArray.startDate|date}}</p>
+                      </div>
+                      <div class="col-md-3">
+                        <p><b>End Date :</b> {{resourceDataArray.endDate|date}}</p>
+                      </div>
+          
+                    </div>
+                    <div class="row" style="background-color: #ebe9e9;">
+                      <div class="col-md-3">
+                        <p><b>Resourse Count :</b> {{resourceDataArray.resourceCount}}</p>
+                      </div>
+                      
+                      <div class="col-md-3">
+                        <p><b>Resourse Cost :</b> {{resourceDataArray.billRate}}</p>
+                      </div>
+          
+                    </div>
+                    <br>
+          
+                  </div>
+            </div>
+            </div>
+          </div>
+        
+          </div> -->
+      
+        </div>
+      
+      
+      
+    
+      
+    
+    
+    
