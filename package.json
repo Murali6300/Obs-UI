@@ -32,7 +32,7 @@
     "jquery": "^3.4.1",
     "jspdf": "^1.5.3",
     "jspdf-autotable": "^3.2.11",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "ng-recaptcha": "^5.0.0",
     "ng2-charts": "^2.3.0",
     "ng2-pica": "^1.2.12",
